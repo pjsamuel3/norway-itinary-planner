@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oslo, May 2025 — A guide for our visit</title>
+  <meta name="description" content="A London family visits Oslo in May 2025. Fjords, ski jumps, floating saunas, and very good coffee.">
+  <meta property="og:title" content="Oslo, May 2025">
+  <meta property="og:description" content="A London family visits Oslo in May 2025. Fjords, ski jumps, floating saunas, and very good coffee.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7F4EF;
+      --ink: #1A1F2E;
+      --teal: #3D7E7A;
+      --teal-light: #518F8B;
+      --card: #EDE9E0;
+      --card-border: #D9D4C8;
+      --muted: #6B6860;
+      --display: 'Playfair Display', Georgia, serif;
+      --body: 'Source Serif 4', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+
+    nav a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.85rem 0.9rem;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: var(--teal);
+      border-bottom-color: var(--teal);
+    }
+
+    /* ── HERO ── */
+    header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 3.5rem;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .intro {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    /* ── SECTIONS ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem 6rem;
+    }
+
+    .day-section {
+      padding-top: 4rem;
+    }
+
+    .day-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-rule::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .section-note {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0.8rem 0 1.8rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--card-border);
+    }
+
+    /* ── CARDS ── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 1.25rem 1.4rem;
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      gap: 0 0.75rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(26,31,46,0.08);
+    }
+
+    .card-icon {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      grid-row: 1;
+    }
+
+    .card-body { grid-column: 2; }
+
+    .card-title {
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-title strong {
+      font-weight: 600;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .card-meta a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+    .card-meta a:hover { text-decoration: underline; }
+
+    .tag-warning {
+      font-family: var(--body);
+      font-size: 0.82rem;
+      font-style: italic;
+      color: #9A6B2E;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── PLACEHOLDER SECTION ── */
+    .placeholder {
+      background: var(--card);
+      border: 1px dashed var(--card-border);
+      border-radius: 4px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-family: var(--body);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .card { grid-template-columns: 1.8rem 1fr; padding: 1rem 1.1rem; }
+      nav a { padding: 0.75rem 0.7rem; font-size: 0.68rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Day navigation">
+  <div class="nav-inner">
+    <a href="#arrival">Arrival</a>
+    <a href="#nesodden">Nesodden</a>
+    <a href="#tuesday">Tuesday</a>
+    <a href="#wednesday">Wednesday</a>
+    <a href="#thursday">Thursday</a>
+  </div>
+</nav>
+
+<header>
+  <p class="eyebrow">London family · Oslo · May 2025</p>
+  <h1>Oslo,<br>May 2025</h1>
+  <p class="subtitle">A guide for our visit</p>
+  <p class="intro">Five days, two kids, one fjord. Here's everything you need.</p>
+</header>
+
+<main>
+
+  <!-- ── ARRIVAL ── -->
+  <section class="day-section" id="arrival" aria-labelledby="arrival-title">
+    <p class="day-label">Saturday · 23 May</p>
+    <div class="section-rule">
+      <h2 id="arrival-title">Arrival &amp; Airport</h2>
+    </div>
+    <p class="section-note">Landing at 21:45 — priority is easy and close. Three options at or near Gardermoen.</p>
+
+    <div class="cards">
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🏨</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Radisson Blu Airport Hotel</strong> <span style="font-family:var(--mono);font-size:0.68rem;color:var(--teal);letter-spacing:0.05em">HOST REC</span></p>
+          <p class="card-desc">Short covered walk directly to/from the terminal — no taxi needed with tired kids and luggage. Reliable, comfortable, good breakfast. Best for an early morning flight out.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=60.192577,11.095312" target="_blank" rel="noopener">Google Maps</a></span>
+            <span>☎️ +47 63 93 30 00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🏨</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Radisson Red Oslo Airport</strong> <span style="font-family:var(--mono);font-size:0.68rem;color:var(--teal);letter-spacing:0.05em">HOST REC</span></p>
+          <p class="card-desc">More modern and design-led, ~5 min walk to the terminal. Stylish rooms, great if you want something a bit hipper. Both Radissons are equally good options.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=60.189782,11.102034" target="_blank" rel="noopener">Google Maps</a></span>
+            <span>☎️ +47 67 02 41 00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🏨</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Comfort Hotel Runway</strong> <span style="font-family:var(--mono);font-size:0.68rem;color:var(--muted);letter-spacing:0.05em">BUDGET</span></p>
+          <p class="card-desc">Requires a shuttle bus (80 NOK/person). Significantly cheaper, breakfast from 4am. Less convenient late at night with young kids, but worth considering if price is the priority.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=60.193262,11.071843" target="_blank" rel="noopener">Google Maps</a></span>
+            <span>☎️ +47 63 94 88 88</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── NESODDEN ── -->
+  <section class="day-section" id="nesodden" aria-labelledby="nesodden-title">
+    <p class="day-label">Sunday &amp; Monday · Bank Holiday</p>
+    <div class="section-rule">
+      <h2 id="nesodden-title">Nesodden</h2>
+    </div>
+    <p class="section-note">Staying with us — plans TBC, but expect fjord, forest and very good food.</p>
+    <div class="placeholder">Content to be added — watch this space.</div>
+  </section>
+
+  <!-- ── TUESDAY ── -->
+  <section class="day-section" id="tuesday" aria-labelledby="tuesday-title">
+    <p class="day-label">Tuesday · Oslo Day 1</p>
+    <div class="section-rule">
+      <h2 id="tuesday-title">City by Bike</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🚲</span>
+        <div class="card-body">
+          <p class="card-title"><strong>E-bike through the city</strong></p>
+          <p class="card-desc">Borrowing our electric bike — it fits both kids on the back. Suggested route: Vigeland Park → waterfront → Opera House. Best done in the morning before it gets busy.</p>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🌿</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Vigeland Park</strong></p>
+          <p class="card-desc">Free, open 24 hours. Gustav Vigeland's monumental sculpture park — enormous and great for kids to roam. One of Oslo's true unmissables: 200+ bronze and granite sculptures.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=59.927029,10.700865" target="_blank" rel="noopener">Google Maps</a></span>
+            <span>🕐 Always open · Free</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🎭</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Oslo Opera House</strong></p>
+          <p class="card-desc">Walk up the sloping white marble roof for panoramic fjord views. The architecture alone is worth the trip. Free to explore outside — kids will love running up the roof.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=59.907489,10.753128" target="_blank" rel="noopener">Google Maps</a></span>
+            <span>🕐 Roof always open · Free</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── WEDNESDAY ── -->
+  <section class="day-section" id="wednesday" aria-labelledby="wednesday-title">
+    <p class="day-label">Wednesday · Oslo Day 2</p>
+    <div class="section-rule">
+      <h2 id="wednesday-title">Heights &amp; Forests</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🏔️</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Holmenkollen Ski Jump</strong></p>
+          <p class="card-desc">Take the T-bane (Metro line 1) up to Holmenkollen. Ride to the top of the jump for extraordinary views over Oslo and the fjord. Ski museum on site — history dating back to the 1860s.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=59.965009,10.664657" target="_blank" rel="noopener">Google Maps</a></span>
+            <span>🕐 Daily 10:00–16:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🌲</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Hiking from Holmenkollen</strong></p>
+          <p class="card-desc">Marked trails lead directly into the Nordmarka forest from the jump. Easy, well-signposted paths — manageable for a 6 and 9 year old. Beautiful Norwegian forest in late May.</p>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">👁️</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Grefsenkollen Viewpoint</strong></p>
+          <p class="card-desc">Alternative or add-on viewpoint — panoramic Oslo view from a different angle, accessible by a separate Metro line. Could combine with Teknisk Museum nearby.</p>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🔬</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Norsk Teknisk Museum</strong></p>
+          <p class="card-desc">100+ hands-on exhibits including a science centre, oil rig simulator, model railway, aviation hall and more. Outstanding for kids and adults alike — genuinely one of the best science museums in Scandinavia.</p>
+          <div class="card-meta">
+            <span>🕐 Tue–Fri 09:00–16:00 · Closed Mon</span>
+            <span>🔗 <a href="https://www.tekniskmuseum.no/en/" target="_blank" rel="noopener">tekniskmuseum.no</a></span>
+            <span>📍 <a href="https://maps.google.com/?q=59.966936,10.783378" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🚶</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Maridalsvatnet</strong></p>
+          <p class="card-desc">Oslo's main reservoir — lovely, easy lakeside walk, very manageable for young kids. Beautiful in late May when the trees are fully out. Quiet and peaceful, far from tourist crowds.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=59.985000,10.765000" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── THURSDAY ── -->
+  <section class="day-section" id="thursday" aria-labelledby="thursday-title">
+    <p class="day-label">Thursday · Oslo Day 3</p>
+    <div class="section-rule">
+      <h2 id="thursday-title">Waterfront Day</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">⚓</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Aker Brygge</strong></p>
+          <p class="card-desc">Oslo's main waterfront district. Great for a morning wander, lunch, coffee, watching the harbour traffic. Central hub for the day — everything else is a short walk or ferry from here.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=59.909958,10.725805" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🛁</span>
+        <div class="card-body">
+          <p class="card-title"><strong>KOK Floating Sauna</strong></p>
+          <p class="card-desc">Wood-fired floating sauna moored at Aker Brygge — heat up, then plunge into the fjord. One of Oslo's most memorable experiences. Book in advance.</p>
+          <p class="tag-warning">⚠️ Check kid policy when booking</p>
+          <div class="card-meta">
+            <span>🕐 Daily from 07:00</span>
+            <span>📍 <a href="https://maps.google.com/?q=59.909271,10.726909" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🏰</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Akershus Fortress</strong></p>
+          <p class="card-desc">13th century fortress on the fjord — free to enter, cobbled grounds, excellent harbour views. Easy ten-minute walk from Aker Brygge. Kids like the cannon mounts.</p>
+          <div class="card-meta">
+            <span>🕐 Daily 06:00–21:00 · Free</span>
+            <span>📍 <a href="https://maps.google.com/?q=59.907586,10.737084" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🎨</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Tjuvholmen</strong></p>
+          <p class="card-desc">Adjacent to Aker Brygge — sculpture beach, Astrup Fearnley modern art museum, striking contemporary architecture. A pleasant fifteen-minute wander from the waterfront.</p>
+          <div class="card-meta">
+            <span>📍 <a href="https://maps.google.com/?q=59.907723,10.721885" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🚢</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Fram Museum</strong></p>
+          <p class="card-desc">Take ferry Line 91 from Aker Brygge. Board the Fram — the world's strongest wooden ship, used in Arctic and Antarctic polar expeditions. Genuinely immersive. One of the best things in Oslo for kids.</p>
+          <div class="card-meta">
+            <span>🕐 Daily 10:00–17:00</span>
+            <span>📍 <a href="https://maps.google.com/?q=59.903381,10.699729" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <span class="card-icon" aria-hidden="true">🖼️</span>
+        <div class="card-body">
+          <p class="card-title"><strong>Munch Museum</strong></p>
+          <p class="card-desc">Home of The Scream and thousands of other Munch works. World-class, beautifully designed building with fjord views. <strong>Free entry on Wednesday evenings</strong> — plan accordingly.</p>
+          <div class="card-meta">
+            <span>🕐 Tue–Sun 10:00–18:00 · Wed–Sat until 21:00</span>
+            <span>📍 <a href="https://maps.google.com/?q=59.905904,10.755261" target="_blank" rel="noopener">Google Maps</a></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Made with love for a long-overdue visit. &nbsp;Oslo, May 2025.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    const siblings = el.parentElement.querySelectorAll('.fade-up');
+    const idx = Array.from(siblings).indexOf(el);
+    el.dataset.delay = idx * 80;
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
