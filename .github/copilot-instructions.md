@@ -1,7 +1,7 @@
 # Copilot Instructions — Oslo Family Itinerary Site
 
 ## What this is
-A single-page static travel itinerary website for a London family visiting Oslo in May 2025.
+A single-page static travel itinerary website for a London family visiting Oslo in May 2026.
 Hosted on GitHub Pages at https://pjsamuel3.github.io/norway-itinary-planner/.
 
 **Audience:** Two adults showing it to their kids (aged 9 and 6) to get excited about the trip.

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Build a beautiful, single-page static website for a family trip itinerary: a London family visiting Oslo in May 2025. Hosted on GitHub Pages. No build tools required — pure HTML, CSS, and vanilla JS in a single `index.html` file (plus any assets).
+Build a beautiful, single-page static website for a family trip itinerary: a London family visiting Oslo in May 2026. Hosted on GitHub Pages. No build tools required — pure HTML, CSS, and vanilla JS in a single `index.html` file (plus any assets).
 
 ---
 
@@ -33,7 +33,7 @@ Build a beautiful, single-page static website for a family trip itinerary: a Lon
 ## Site Structure
 
 ### Header
-- Large display title: **"Oslo, May 2025"**
+- Large display title: **"Oslo, May 2026"**
 - Subtitle: *"A guide for our visit"*
 - Short intro sentence (1 line)
 - Sticky nav with jump links: Arrival · Nesodden · Tuesday · Wednesday · Thursday
@@ -56,7 +56,7 @@ Each card contains:
 - Links open in new tab
 
 ### Footer
-- Simple: *"Made with love for a long-overdue visit. Oslo, May 2025."*
+- Simple: *"Made with love for a long-overdue visit. Oslo, May 2026."*
 
 ---
 
