@@ -1,4 +1,4 @@
-# Oslo Visit — May 2025
+# Oslo Visit — May 2026
 
 *A guide for our friends visiting from London.*
 
