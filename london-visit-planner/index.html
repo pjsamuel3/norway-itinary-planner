@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F1419">
+  <meta name="color-scheme" content="dark light">
+  <title>London Visit Guide for Una</title>
+  <meta name="description" content="A host's guide to London from a north Soho base — museums, the South Bank, day trips, and the best food and drink nearby.">
+  <meta property="og:title" content="London Visit Guide for Una">
+  <meta property="og:description" content="A host's guide to London from a north Soho base — museums, the South Bank, day trips, and the best food and drink nearby.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── RESET & TOKENS ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Dark by default */
+    :root {
+      --bg:          #0F1419;
+      --surface:     #171E26;
+      --surface-2:   #1E2731;
+      --border:      #2A3440;
+      --ink:         #EEF1F4;
+      --ink-soft:    #B7C0CA;
+      --muted:       #8793A0;
+      --red:         #E5484D;   /* London bus red */
+      --red-bg:      rgba(229,72,77,.14);
+      --teal:        #3FBFAA;
+      --teal-bg:     rgba(63,191,170,.12);
+      --gold:        #F0B84A;
+      --nav-bg:      rgba(15,20,25,.9);
+
+      --f-display: 'Playfair Display', Georgia, serif;
+      --f-serif:   'Source Serif 4', Georgia, serif;
+      --f-sans:    'DM Sans', system-ui, sans-serif;
+      --f-mono:    'DM Mono', ui-monospace, monospace;
+
+      --shadow-sm: 0 1px 4px rgba(0,0,0,.25);
+      --shadow-md: 0 6px 22px rgba(0,0,0,.35);
+
+      --r-sm:   6px;
+      --r-md:   14px;
+      --r-pill: 999px;
+    }
+
+    /* Light override for people who prefer it */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:        #FAFAF8;
+        --surface:   #FFFFFF;
+        --surface-2: #F3F1EC;
+        --border:    #E4DED5;
+        --ink:       #13202E;
+        --ink-soft:  #3D4A58;
+        --muted:     #6F6A63;
+        --red:       #C8102E;
+        --red-bg:    #FCEBEC;
+        --teal:      #1F7A6C;
+        --teal-bg:   #E6F4F1;
+        --gold:      #B97A10;
+        --nav-bg:    rgba(250,250,248,.94);
+        --shadow-sm: 0 1px 4px rgba(13,27,42,.07);
+        --shadow-md: 0 4px 18px rgba(13,27,42,.11);
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--f-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 68px; /* mobile nav clearance */
+    }
+    @media (min-width: 720px) { body { padding-bottom: 0; } }
+
+    a { color: var(--teal); }
+
+    /* ── DESKTOP TOP NAV ── */
+    .top-nav {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 720px) {
+      .top-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 54px;
+        padding: 0 2rem;
+      }
+    }
+    .top-nav-brand {
+      font-family: var(--f-display);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .top-nav-links { display: flex; list-style: none; }
+    .top-nav-links a {
+      font-family: var(--f-mono);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: .55rem .75rem;
+      border-radius: var(--r-sm);
+      transition: color .15s, background .15s;
+    }
+    .top-nav-links a:hover { color: var(--teal); background: var(--teal-bg); }
+
+    /* ── MOBILE BOTTOM NAV ── */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.2);
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    @media (min-width: 720px) { .bottom-nav { display: none; } }
+    .bottom-nav a {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: .55rem .1rem;
+      min-height: 56px;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .15s;
+    }
+    .bottom-nav a.active, .bottom-nav a:hover { color: var(--red); }
+    .bottom-nav-icon { font-size: 1.2rem; line-height: 1; }
+    .bottom-nav-label {
+      font-family: var(--f-mono);
+      font-size: .56rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 88svh;
+      max-height: 860px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      background:
+        radial-gradient(ellipse at 80% 10%, rgba(229,72,77,.35), transparent 55%),
+        radial-gradient(ellipse at 10% 90%, rgba(63,191,170,.22), transparent 55%),
+        linear-gradient(160deg, #1B2533 0%, #0B1016 100%);
+      color: #fff;
+    }
+    .hero-mark {
+      position: absolute;
+      right: -2rem;
+      top: 2rem;
+      font-size: clamp(9rem, 38vw, 22rem);
+      line-height: 1;
+      opacity: .09;
+      pointer-events: none;
+      user-select: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 2.5rem;
+    }
+    @media (min-width: 720px) { .hero-content { padding: 4rem 2.5rem 3.5rem; } }
+    .hero-eyebrow {
+      font-family: var(--f-mono);
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom: .75rem;
+    }
+    h1.hero-title {
+      font-family: var(--f-display);
+      font-size: clamp(4rem, 17vw, 9.5rem);
+      font-weight: 900;
+      line-height: .9;
+      letter-spacing: -.03em;
+      margin-bottom: .6rem;
+    }
+    h1.hero-title span { color: var(--red); }
+    .hero-sub {
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2.8vw, 1.3rem);
+      color: rgba(255,255,255,.78);
+      margin-bottom: 2rem;
+      max-width: 38ch;
+    }
+    .hero-pills { display: flex; gap: .45rem; flex-wrap: wrap; }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .4rem .9rem;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: var(--r-pill);
+      font-size: .8rem;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .hero-pill:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.45); }
+
+    /* ── SECTION CHAPTER HEADER ── */
+    .chapter-header {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+    }
+    @media (min-width: 720px) { .chapter-header { height: 250px; } }
+    .ch-basics   { background: linear-gradient(135deg, #243447, #111a24); }
+    .ch-sights   { background: linear-gradient(135deg, #5A1E24, #1A1116); }
+    .ch-daytrips { background: linear-gradient(135deg, #1D4032, #0F1B16); }
+    .ch-food     { background: linear-gradient(135deg, #5A3A14, #1C140C); }
+    .ch-adults   { background: linear-gradient(135deg, #3A2250, #140E1C); }
+    .ch-plan     { background: linear-gradient(135deg, #1D3450, #0E1522); }
+    .chapter-mark {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 8rem;
+      opacity: .16;
+      pointer-events: none;
+    }
+    .chapter-text {
+      position: relative;
+      z-index: 1;
+      padding: 1.4rem 1.25rem;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    @media (min-width: 720px) { .chapter-text { padding: 2rem 2.5rem; } }
+    .section-tag {
+      display: inline-block;
+      font-family: var(--f-mono);
+      font-size: .62rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #FFB3B5;
+      background: rgba(229,72,77,.18);
+      border: 1px solid rgba(229,72,77,.4);
+      border-radius: var(--r-pill);
+      padding: .22rem .65rem;
+      margin-bottom: .45rem;
+    }
+    .chapter-text h2 {
+      font-family: var(--f-display);
+      font-size: clamp(1.9rem, 6vw, 3rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .chapter-note {
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-size: .9rem;
+      color: rgba(255,255,255,.7);
+      margin-top: .3rem;
+    }
+
+    /* ── SECTION BODY ── */
+    .section-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+    @media (min-width: 720px) { .section-body { padding: 2.5rem 2.5rem 4rem; } }
+
+    .context-note {
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-size: .98rem;
+      color: var(--ink-soft);
+      background: var(--teal-bg);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: .75rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Basics table */
+    .basics {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      font-size: .92rem;
+    }
+    .basics th, .basics td {
+      text-align: left;
+      vertical-align: top;
+      padding: .7rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .basics tr:last-child th, .basics tr:last-child td { border-bottom: 0; }
+    .basics th {
+      width: 34%;
+      font-family: var(--f-mono);
+      font-size: .7rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .basics td { color: var(--ink-soft); }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── CARDS ── */
+    .cards { display: flex; flex-direction: column; gap: .75rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: flex;
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .rail { width: 4px; flex-shrink: 0; }
+    .rail-red    { background: var(--red); }
+    .rail-teal   { background: var(--teal); }
+    .rail-gold   { background: var(--gold); }
+    .rail-green  { background: #3DBE74; }
+    .rail-purple { background: #9A7BF0; }
+    .rail-blue   { background: #4D9BE6; }
+
+    .card-inner {
+      display: flex;
+      gap: .8rem;
+      padding: 1.1rem 1.1rem 1.1rem .95rem;
+      flex: 1;
+      min-width: 0;
+    }
+    .card-emoji { font-size: 1.55rem; line-height: 1.1; flex-shrink: 0; }
+    .card-body { flex: 1; min-width: 0; }
+    .card-row1 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .4rem .5rem;
+      margin-bottom: .3rem;
+    }
+    .card-title {
+      font-family: var(--f-sans);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .card-where {
+      display: block;
+      font-family: var(--f-mono);
+      font-size: .66rem;
+      font-weight: 400;
+      letter-spacing: .04em;
+      color: var(--muted);
+      margin-top: .1rem;
+    }
+    .badges { display: flex; gap: .28rem; flex-wrap: wrap; }
+    .badge {
+      font-family: var(--f-mono);
+      font-size: .6rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .18rem .5rem;
+      border-radius: var(--r-pill);
+      white-space: nowrap;
+      border: 1px solid;
+    }
+    .badge-host   { color: var(--gold);  border-color: color-mix(in srgb, var(--gold) 45%, transparent);  background: color-mix(in srgb, var(--gold) 12%, transparent); }
+    .badge-family { color: var(--teal);  border-color: color-mix(in srgb, var(--teal) 45%, transparent);  background: color-mix(in srgb, var(--teal) 12%, transparent); }
+    .badge-teen   { color: #B39CF5;      border-color: rgba(154,123,240,.45); background: rgba(154,123,240,.12); }
+    .badge-adults { color: var(--red);   border-color: color-mix(in srgb, var(--red) 50%, transparent);   background: var(--red-bg); }
+    .badge-free   { color: #3DBE74;      border-color: rgba(61,190,116,.45);  background: rgba(61,190,116,.12); }
+    .badge-book   { color: #4D9BE6;      border-color: rgba(77,155,230,.45);  background: rgba(77,155,230,.12); }
+    @media (prefers-color-scheme: light) {
+      .badge-teen { color: #5B3FB8; }
+      .badge-free { color: #1A7A45; }
+      .badge-book { color: #2C5FAA; }
+    }
+
+    .card-desc {
+      font-family: var(--f-serif);
+      font-size: .93rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: .7rem;
+    }
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem .9rem;
+      font-family: var(--f-mono);
+      font-size: .7rem;
+      color: var(--muted);
+      margin-bottom: .75rem;
+    }
+    .card-meta a { color: inherit; }
+    .card-actions { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-family: var(--f-sans);
+      font-size: .8rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: .35rem .8rem;
+      border-radius: var(--r-pill);
+      min-height: 34px;
+      transition: background .15s, color .15s;
+    }
+    .btn-map {
+      background: var(--teal-bg);
+      color: var(--teal);
+      border: 1px solid color-mix(in srgb, var(--teal) 35%, transparent);
+    }
+    .btn-map:hover { background: var(--teal); color: #fff; }
+    .btn-phone {
+      background: var(--surface-2);
+      color: var(--ink-soft);
+      border: 1px solid var(--border);
+    }
+    .btn-phone:hover { color: var(--ink); }
+
+    /* ── TIP CALLOUT (blockquote) ── */
+    blockquote.tip {
+      font-family: var(--f-serif);
+      font-size: .93rem;
+      color: var(--ink-soft);
+      background: color-mix(in srgb, var(--gold) 9%, var(--surface));
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: .8rem 1rem;
+      margin: .25rem 0 .5rem;
+    }
+    blockquote.tip strong {
+      font-family: var(--f-sans);
+      color: var(--gold);
+    }
+
+    .subhead {
+      font-family: var(--f-mono);
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 1.75rem 0 .75rem;
+    }
+    .subhead:first-child { margin-top: 0; }
+
+    /* ── OPEN QUESTIONS CHECKLIST ── */
+    .checklist {
+      list-style: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .checklist li { border-bottom: 1px solid var(--border); }
+    .checklist li:last-child { border-bottom: 0; }
+    .checklist label {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .95rem 1.1rem;
+      cursor: pointer;
+      font-size: .98rem;
+      color: var(--ink);
+    }
+    .checklist input {
+      width: 1.15rem;
+      height: 1.15rem;
+      margin-top: .2rem;
+      accent-color: var(--red);
+      flex-shrink: 0;
+    }
+    .checklist input:checked + span { color: var(--muted); text-decoration: line-through; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0A0E12;
+      color: rgba(255,255,255,.55);
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+    }
+    .footer-wordmark {
+      font-family: var(--f-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      display: block;
+      margin-bottom: .4rem;
+    }
+    footer p { font-family: var(--f-serif); font-style: italic; font-size: .9rem; }
+    .back-to-top {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-family: var(--f-mono);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: var(--r-pill);
+      padding: .38rem .85rem;
+    }
+    .back-to-top:hover { color: #fff; border-color: rgba(255,255,255,.5); }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .45s ease, transform .45s ease;
+    }
+    .fade-up.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Desktop sticky nav -->
+<nav class="top-nav" aria-label="Section navigation">
+  <a href="#top" class="top-nav-brand">London · for Una</a>
+  <ul class="top-nav-links">
+    <li><a href="#basics">🧭 Basics</a></li>
+    <li><a href="#sights">🏛️ Sights</a></li>
+    <li><a href="#daytrips">🚆 Day trips</a></li>
+    <li><a href="#food">🍽️ Food</a></li>
+    <li><a href="#adults">🍸 Adults</a></li>
+    <li><a href="#questions">✅ To decide</a></li>
+  </ul>
+</nav>
+
+<!-- Mobile fixed bottom nav -->
+<nav class="bottom-nav" aria-label="Jump to section">
+  <a href="#basics"><span class="bottom-nav-icon">🧭</span><span class="bottom-nav-label">Basics</span></a>
+  <a href="#sights"><span class="bottom-nav-icon">🏛️</span><span class="bottom-nav-label">Sights</span></a>
+  <a href="#daytrips"><span class="bottom-nav-icon">🚆</span><span class="bottom-nav-label">Trips</span></a>
+  <a href="#food"><span class="bottom-nav-icon">🍽️</span><span class="bottom-nav-label">Food</span></a>
+  <a href="#adults"><span class="bottom-nav-icon">🍸</span><span class="bottom-nav-label">Adults</span></a>
+  <a href="#questions"><span class="bottom-nav-icon">✅</span><span class="bottom-nav-label">Decide</span></a>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <div class="hero-mark" aria-hidden="true">🎡</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">A London visit guide · for Una &amp; family</p>
+    <h1 class="hero-title">London<span>.</span></h1>
+    <p class="hero-sub">Museums, the river, two day trips and the best of Soho — all within reach of a north Soho base.</p>
+    <nav class="hero-pills" aria-label="Jump to section">
+      <a href="#basics"    class="hero-pill">🧭 The Basics</a>
+      <a href="#sights"    class="hero-pill">🏛️ Sights</a>
+      <a href="#daytrips"  class="hero-pill">🚆 Full-day trips</a>
+      <a href="#food"      class="hero-pill">🍽️ Food &amp; Drink</a>
+      <a href="#adults"    class="hero-pill">🍸 Adults only</a>
+      <a href="#questions" class="hero-pill">✅ Open Questions</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ════ THE BASICS ════ -->
+  <section class="guide-section" id="basics" aria-labelledby="basics-h">
+    <div class="chapter-header ch-basics">
+      <div class="chapter-mark" aria-hidden="true">🧭</div>
+      <div class="chapter-text">
+        <span class="section-tag">Start here</span>
+        <h2 id="basics-h">The Basics</h2>
+        <p class="chapter-note">Who, where, and how to read this guide</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <table class="basics fade-up">
+        <tbody>
+          <tr><th scope="row">Guest</th><td>Una</td></tr>
+          <tr><th scope="row">Group</th><td>Family group, including two children aged <strong>10</strong> and <strong>15</strong></td></tr>
+          <tr><th scope="row">Base</th><td>North Soho — walking distance to the British Museum and Covent Garden; the Natural History Museum is a short Tube ride away</td></tr>
+        </tbody>
+      </table>
+
+      <p class="subhead">Tag key</p>
+      <div class="legend fade-up">
+        <span class="badge badge-host">Host recommendation ⭐</span>
+        <span class="badge badge-family">Family-friendly</span>
+        <span class="badge badge-teen">Best for the teen</span>
+        <span class="badge badge-adults">Adults only</span>
+        <span class="badge badge-free">Free</span>
+        <span class="badge badge-book">Book ahead</span>
+      </div>
+
+      <blockquote class="tip fade-up"><strong>Tip:</strong> Skip the Oyster card. Tap in and out with a contactless bank card or phone; daily and weekly fare caps apply automatically. Under-11s travel free on the Tube with an adult. The 15-year-old pays full fare unless you get a Zip Oyster photocard, which you'd need to apply for in advance.</blockquote>
+    </div>
+  </section>
+
+  <!-- ════ SIGHTS ════ -->
+  <section class="guide-section" id="sights" aria-labelledby="sights-h">
+    <div class="chapter-header ch-sights">
+      <div class="chapter-mark" aria-hidden="true">🏛️</div>
+      <div class="chapter-text">
+        <span class="section-tag">Central London</span>
+        <h2 id="sights-h">Sights</h2>
+        <p class="chapter-note">Museums, the river, and a couple of things just for the kids</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="cards">
+
+        <article class="card fade-up">
+          <div class="rail rail-gold"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🏛️</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">British Museum<span class="card-where">Bloomsbury · ~10 min walk</span></h3>
+                <div class="badges"><span class="badge badge-host">Host recommendation ⭐</span><span class="badge badge-free">Free</span><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">The Rosetta Stone, the Parthenon sculptures and the Egyptian mummies, free and on the doorstep. It's close enough to visit in a few short trips rather than one long one.</p>
+              <div class="card-meta"><span>🕐 Daily 10:00–17:00 (Fri until 20:30)</span><span>☎️ +44 20 7323 8299</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.519413,-0.126957" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+                <a href="tel:+442073238299" class="btn btn-phone">☎️ Call</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Book a free timed entry slot online to skip the queue. Go straight to Room 4 (Rosetta Stone) and Rooms 62–63 (mummies) before the crowds build.</blockquote>
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🦕</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Natural History Museum<span class="card-where">South Kensington · further out</span></h3>
+                <div class="badges"><span class="badge badge-free">Free</span><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">Dinosaurs, the blue whale in Hintze Hall and the earthquake room. Allow a half or full day. The Piccadilly line from Leicester Square or Piccadilly Circus takes about 15 minutes.</p>
+              <div class="card-meta"><span>🕐 Daily 10:00–17:50</span><span>☎️ +44 20 7942 5000</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.496715,-0.176367" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+                <a href="tel:+442079425000" class="btn btn-phone">☎️ Call</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🚀</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Science Museum<span class="card-where">South Kensington · next door to the NHM</span></h3>
+                <div class="badges"><span class="badge badge-free">Free</span><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">Right next to the Natural History Museum, so the two pair easily on one day. Space capsules, flight galleries and the hands-on Wonderlab. Entry is free; Wonderlab is paid and a hit with a 10-year-old.</p>
+              <div class="card-meta"><span>🕐 Daily 10:00–18:00</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.497825,-0.174466" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Do both museums on one day: the Natural History Museum in the morning, lunch, then the Science Museum in the afternoon. From South Kensington station, take the signposted pedestrian tunnel; it stays dry and brings you out at both museums. Book free timed slots in school holidays.</blockquote>
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🎭</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Covent Garden<span class="card-where">Covent Garden · ~10 min walk</span></h3>
+                <div class="badges"><span class="badge badge-free">Free</span><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">The piazza, the Apple Market stalls, shops, and street performers on the West Piazza. It's an easy walk from Soho and a good place to wander without a plan.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.511910,-0.122762" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🎨</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Tate Modern + Millennium Bridge<span class="card-where">Bankside</span></h3>
+                <div class="badges"><span class="badge badge-free">Free</span><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">Modern art in a converted power station. The huge Turbine Hall and the free viewing level at the top are the highlights. Cross the Millennium Bridge on foot to reach St Paul's.</p>
+              <div class="card-meta"><span>🕐 Daily 10:00–18:00</span><span>☎️ +44 20 7887 8888</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.507595,-0.099356" target="_blank" rel="noopener" class="btn btn-map">📍 Tate Modern</a>
+                <a href="https://maps.google.com/?q=51.509540,-0.098440" target="_blank" rel="noopener" class="btn btn-map">📍 Millennium Bridge</a>
+                <a href="tel:+442078878888" class="btn btn-phone">☎️ Call</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Do it as a walk: Tate Modern, then across the Millennium Bridge, then <a href="https://maps.google.com/?q=51.513845,-0.098351" target="_blank" rel="noopener">St Paul's Cathedral</a>. Crossing the bridge takes about 10 minutes, with the dome straight ahead the whole way.</blockquote>
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🎡</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">London Eye + Jubilee Gardens<span class="card-where">South Bank</span></h3>
+                <div class="badges"><span class="badge badge-family">Family</span><span class="badge badge-book">Book ahead</span></div>
+              </div>
+              <p class="card-desc">A slow 30-minute turn with views across Westminster. Jubilee Gardens, right beside it, has a playground and lawns where the family can take a break.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.503324,-0.119543" target="_blank" rel="noopener" class="btn btn-map">📍 London Eye</a>
+                <a href="https://maps.google.com/?q=51.504200,-0.118900" target="_blank" rel="noopener" class="btn btn-map">📍 Jubilee Gardens</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Buy timed tickets online. They cost less than at the booth and the queue is shorter.</blockquote>
+
+        <article class="card fade-up">
+          <div class="rail rail-purple"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🌀</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Museum of Illusions<span class="card-where">Fitzrovia · 15–17 Tottenham Court Rd</span></h3>
+                <div class="badges"><span class="badge badge-family">Family · 10 &amp; 15</span></div>
+              </div>
+              <p class="card-desc">About an hour of optical tricks, tilted rooms and photo spots. It works for both a 10- and a 15-year-old and makes a good rainy-day option a few minutes' walk from the base.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.516800,-0.131000" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-purple"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">💎</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Crystal Maze LIVE Experience<span class="card-where">West End · 22–32 Shaftesbury Ave</span></h3>
+                <div class="badges"><span class="badge badge-teen">Best for the teen</span><span class="badge badge-book">Book ahead</span></div>
+              </div>
+              <p class="card-desc">The TV game show recreated for real: a team races through themed zones solving physical and mental challenges to win crystals. Best suited to the 15-year-old. Check the minimum age before bringing the 10-year-old.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.510500,-0.133000" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FULL-DAY TRIPS ════ -->
+  <section class="guide-section" id="daytrips" aria-labelledby="daytrips-h">
+    <div class="chapter-header ch-daytrips">
+      <div class="chapter-mark" aria-hidden="true">🚆</div>
+      <div class="chapter-text">
+        <span class="section-tag">A bit further out</span>
+        <h2 id="daytrips-h">Full-day trips</h2>
+        <p class="chapter-note">Worth a whole day each: pick one, or both</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="cards">
+
+        <article class="card fade-up">
+          <div class="rail rail-green"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🌿</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Kew Gardens<span class="card-where">Richmond · west London</span></h3>
+                <div class="badges"><span class="badge badge-family">Family</span><span class="badge badge-book">Book ahead</span></div>
+              </div>
+              <p class="card-desc">The Royal Botanic Gardens: the Victorian Palm House, the Treetop Walkway 18m up, and a large Children's Garden. Take the District line to Kew Gardens station, about 45 minutes from the West End.</p>
+              <div class="card-meta"><span>🕐 Opens daily 10:00 · closing time varies by season</span><span>☎️ +44 20 8332 5655</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.478700,-0.295600" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+                <a href="tel:+442083325655" class="btn btn-phone">☎️ Call</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-green"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">⛵</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Cutty Sark<span class="card-where">Greenwich · DLR or riverboat</span></h3>
+                <div class="badges"><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">A 19th-century tea clipper you can walk underneath. Pair it with the Royal Observatory, where you can stand on the Prime Meridian, and the views from Greenwich Park. Take the DLR to Cutty Sark station or a Thames riverboat.</p>
+              <div class="card-meta"><span>🕐 Daily 10:00–17:00</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.482700,-0.009600" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Take the Uber Boat by Thames Clippers out from Embankment or London Eye pier, then come back on the DLR. Tapping on with contactless works on the boat too. The ride goes past the Tower of London and under Tower Bridge.</blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOD & DRINK ════ -->
+  <section class="guide-section" id="food" aria-labelledby="food-h">
+    <div class="chapter-header ch-food">
+      <div class="chapter-mark" aria-hidden="true">🍽️</div>
+      <div class="chapter-text">
+        <span class="section-tag">Eat &amp; drink</span>
+        <h2 id="food-h">Food &amp; Drink</h2>
+        <p class="chapter-note">Host favourites first, then Soho alternatives</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <p class="subhead">Host favourites</p>
+      <div class="cards">
+
+        <article class="card fade-up">
+          <div class="rail rail-gold"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🍳</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Bill's Soho<span class="card-where">Soho · Brewer St</span></h3>
+                <div class="badges"><span class="badge badge-host">Host recommendation ⭐</span><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">The go-to breakfast: full English, pancakes and good coffee. It's relaxed, kid-friendly and a short walk from the base.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.511400,-0.136100" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-gold"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🍷</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Gordon's Wine Bar<span class="card-where">Embankment · 47 Villiers St</span></h3>
+                <div class="badges"><span class="badge badge-host">Host recommendation ⭐</span><span class="badge badge-adults">Best for adults</span></div>
+              </div>
+              <p class="card-desc">London's oldest wine bar: a candlelit, vaulted medieval cellar that feels unchanged in a century. It's mainly a grown-ups' evening; check the under-18 policy before bringing the kids.</p>
+              <div class="card-meta"><span>🕐 Mon–Sat 11:00–23:00 · Sun 12:00–22:00</span><span>☎️ +44 20 7930 1408</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.507800,-0.123200" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+                <a href="tel:+442079301408" class="btn btn-phone">☎️ Call</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Gordon's doesn't take bookings. Arrive before 17:30 to get a table in the cellar.</blockquote>
+
+        <article class="card fade-up">
+          <div class="rail rail-gold"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🌆</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Duck &amp; Waffle<span class="card-where">City · 40th floor, 110 Bishopsgate</span></h3>
+                <div class="badges"><span class="badge badge-host">Host recommendation ⭐</span><span class="badge badge-family">Family</span><span class="badge badge-book">Book ahead</span></div>
+              </div>
+              <p class="card-desc">A restaurant on the 40th floor, open 24 hours, with a view across the whole city. Order the signature dish, duck &amp; waffle. It's worth doing at any hour.</p>
+              <div class="card-meta"><span>🕐 Open 24 hours</span><span>☎️ +44 20 3640 7310</span></div>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.516200,-0.080900" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+                <a href="tel:+442036407310" class="btn btn-phone">☎️ Call</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Book ahead, especially for a sunset table. Breakfast is the easiest time to go with the kids, and the view is just as good.</blockquote>
+
+      </div>
+
+      <p class="subhead">Soho brunch alternatives</p>
+      <div class="cards">
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🥑</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Scarlett Green<span class="card-where">Soho · 4 Noel St</span></h3>
+                <div class="badges"><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">Australian-style brunch: smashed avo, big plates and good coffee.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.515300,-0.136300" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🥐</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Nessa Soho<span class="card-where">Soho · 86 Brewer St</span></h3>
+                <div class="badges"><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">A modern British bistro with a polished brunch menu, a notch smarter than the others.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.511000,-0.135800" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-teal"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">☕</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Milk Beach Soho<span class="card-where">Soho · 14 Greek St</span></h3>
+                <div class="badges"><span class="badge badge-family">Family</span></div>
+              </div>
+              <p class="card-desc">A bright, all-day Australian café that works for a late brunch.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.514400,-0.131100" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="subhead">Soho evening gems</p>
+      <div class="cards">
+
+        <article class="card fade-up">
+          <div class="rail rail-red"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🔥</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Impala<span class="card-where">Soho · 13–14 Dean St</span></h3>
+                <div class="badges"><span class="badge badge-book">Book ahead</span></div>
+              </div>
+              <p class="card-desc">A North African grill with a buzzy room and cooking over fire. It's a grown-up dinner, but the 15-year-old would enjoy it too.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.515500,-0.133000" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="rail rail-red"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🥂</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">The Soho Social<span class="card-where">Soho · 9 Berwick St</span></h3>
+              </div>
+              <p class="card-desc">A relaxed Soho spot for evening drinks and food, a short stroll from the base.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.513900,-0.134800" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ ADULTS ONLY ════ -->
+  <section class="guide-section" id="adults" aria-labelledby="adults-h">
+    <div class="chapter-header ch-adults">
+      <div class="chapter-mark" aria-hidden="true">🍸</div>
+      <div class="chapter-text">
+        <span class="section-tag">18+ · not for the kids</span>
+        <h2 id="adults-h">Adults only</h2>
+        <p class="chapter-note">For after bedtime</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="cards">
+
+        <article class="card fade-up">
+          <div class="rail rail-red"></div>
+          <div class="card-inner">
+            <span class="card-emoji" aria-hidden="true">🍸</span>
+            <div class="card-body">
+              <div class="card-row1">
+                <h3 class="card-title">Trisha's<span class="card-where">Soho · 57 Greek St (basement)</span></h3>
+                <div class="badges"><span class="badge badge-adults">Adults only</span></div>
+              </div>
+              <p class="card-desc">A members' basement dive bar that's been a Soho institution for decades. Visitors get in with ID. Expect cheap drinks, a jukebox and a guaranteed story. It is not for the kids.</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=51.513600,-0.131400" target="_blank" rel="noopener" class="btn btn-map">📍 Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <blockquote class="tip fade-up"><strong>Tip:</strong> Bring photo ID and ring the buzzer at the door. Go late, while another adult covers the kids.</blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ OPEN QUESTIONS ════ -->
+  <section class="guide-section" id="questions" aria-labelledby="questions-h">
+    <div class="chapter-header ch-plan">
+      <div class="chapter-mark" aria-hidden="true">✅</div>
+      <div class="chapter-text">
+        <span class="section-tag">Still to decide</span>
+        <h2 id="questions-h">Open Questions</h2>
+        <p class="chapter-note">Tick them off as they're sorted</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <ul class="checklist fade-up">
+        <li><label><input type="checkbox" data-key="q-days"><span>Which days are which activities happening on?</span></label></li>
+        <li><label><input type="checkbox" data-key="q-booking"><span>Booking needed for Duck &amp; Waffle / Crystal Maze?</span></label></li>
+        <li><label><input type="checkbox" data-key="q-transport"><span>Transport — Oyster/contactless plan?</span></label></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="footer-wordmark">London, for Una</span>
+  <p>Hours and prices change — worth a quick check before you set off.</p>
+  <a href="#top" class="back-to-top">↑ Back to top</a>
+</footer>
+
+<script>
+  // Staggered scroll-triggered fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const siblings = [...entry.target.parentElement.children]
+        .filter(el => el.classList.contains('fade-up'));
+      const delay = Math.min(siblings.indexOf(entry.target), 4) * 75;
+      setTimeout(() => entry.target.classList.add('in'), delay);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Active state on bottom nav based on visible section
+  const navLinks = document.querySelectorAll('.bottom-nav a');
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(l => l.classList.remove('active'));
+      const match = document.querySelector(`.bottom-nav a[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('.guide-section').forEach(s => sectionObserver.observe(s));
+
+  // Remember ticked Open Questions on this device (optional convenience)
+  document.querySelectorAll('.checklist input').forEach(box => {
+    const key = 'london-guide:' + box.dataset.key;
+    try { box.checked = localStorage.getItem(key) === '1'; } catch (e) {}
+    box.addEventListener('change', () => {
+      try { localStorage.setItem(key, box.checked ? '1' : '0'); } catch (e) {}
+    });
+  });
+</script>
+</body>
+</html>
