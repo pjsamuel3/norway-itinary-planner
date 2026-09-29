@@ -53,17 +53,17 @@ The page ends with an **Open Questions** checklist. The boxes start unchecked. T
 
 ## GitHub Pages setup
 
-- Repo: `london-visit-planner`
-- **Settings → Pages → Deploy from a branch → `main` / `(root)`**
-- Live at: `https://pjsamuel3.github.io/london-visit-planner/`
-- To update: edit `index.html` (and `README.md` to keep them in sync) and push to `main`
+- Lives in the `london-visit-planner/` folder of the `norway-itinary-planner` repo, alongside the Oslo site. It could move to its own repo or be renamed later.
+- Served by that repo's existing Pages deployment (`main` / root)
+- Live at: `https://pjsamuel3.github.io/norway-itinary-planner/london-visit-planner/`
+- To update: edit `london-visit-planner/index.html` (and `README.md` to keep them in sync) and push to `main`
 
 ---
 
 ## File structure
 
 ```
-london-visit-planner/
+norway-itinary-planner/london-visit-planner/
 ├── index.html   ← the whole site (HTML + CSS + JS)
 ├── README.md    ← the guide as plain Markdown (renders on GitHub)
 └── SPEC.md      ← this file

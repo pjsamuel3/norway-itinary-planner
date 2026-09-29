@@ -2,7 +2,7 @@
 
 *A host's guide to London from a north Soho base.*
 
-🌐 **Live site (once its own repo has Pages enabled):** https://pjsamuel3.github.io/london-visit-planner/
+🌐 **Live site:** https://pjsamuel3.github.io/norway-itinary-planner/london-visit-planner/
 
 **Tags:** ⭐ Host recommendation · 👨‍👩‍👧‍👦 Family-friendly · 🧑 Best for the teen · 🔞 Adults only
 
@@ -143,4 +143,4 @@ A members' basement dive bar at 57 Greek Street. Visitors need ID. It is not for
 
 ## Deploying
 
-Plain HTML/CSS with no build step and no dependencies. In **Settings → Pages**, set **Deploy from a branch** to `main` and `/ (root)`. To update the guide, edit `index.html` and push to `main`.
+Plain HTML/CSS with no build step and no dependencies. The guide lives in the `london-visit-planner/` folder of the `norway-itinary-planner` repo and is served by that repo's GitHub Pages site (deployed from `main`). To update the guide, edit `london-visit-planner/index.html` and push to `main`.
